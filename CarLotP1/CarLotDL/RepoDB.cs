@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using CarLotModels;
 using Model = CarLotModels;
+// using CarLotModels;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CarLotDL
 {
