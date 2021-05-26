@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CarLotDL;
 
 namespace CarLotWebUI
 {
@@ -25,7 +24,7 @@ namespace CarLotWebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<PracticeContext>(options => options.UseNpgsql())
+            // services.AddDbContext<PracticeContext>(options => options.UseNpgsql(Confiuration.GetConnectionString("CarLotDB")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

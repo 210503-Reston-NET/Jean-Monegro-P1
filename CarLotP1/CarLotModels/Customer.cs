@@ -18,11 +18,11 @@ namespace CarLotModels
         {
 
         }
-        public Customer(int id, string firstName, string lastName, int pin) : this(firstName, lastName, pin)
+        public Customer(int customerid, string firstName, string lastName, int pin) : this(firstName, lastName, pin)
         {
-            this.Id = id;
+            this.CustomerId = customerid;
         }
-        public int Id{get;set;}
+        public int CustomerId{get;set;}
         public string FirstName{get;set;}
         public string LastName{get;set;}
         public int Pin{get;set;}

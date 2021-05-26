@@ -35,7 +35,7 @@ namespace CarLotDL
             modelBuilder.Entity<Description>()
             .Property(description => description.DescriptionId)
             .ValueGeneratedOnAdd();
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<Orders>()
             .Property(order => order.OrderId)
             .ValueGeneratedOnAdd();
             modelBuilder.Entity<Customer>()

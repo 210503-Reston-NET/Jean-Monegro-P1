@@ -112,7 +112,7 @@ namespace CarLotDL
 
         public Customer DeleteCustomer(Customer customer)
         {
-            Customer toBeDeleted = _context.Customers.First(resto => resto.Id == customer.Id);
+            Customer toBeDeleted = _context.Customers.First(resto => resto.CustomerId == customer.CustomerId);
             _context.Customers.Remove(toBeDeleted);
             _context.SaveChanges();
             return customer;
