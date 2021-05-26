@@ -13,8 +13,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\RRBL\RRBL.csproj" />
-		<ProjectReference Include="..\RRModels\RRModels.csproj" />
+		<ProjectReference Include="..\CarLotBL\CarLotBL.csproj" />
+		<ProjectReference Include="..\CarLotModels\CarLotModels.csproj" />
 	</ItemGroup>
 
 </Project>
