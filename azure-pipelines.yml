@@ -1,4 +1,23 @@
 # Starter pipeline
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'CarLotSonarCloud'
+    organization: '210503-reston-net'
+    scannerMode: 'MSBuild'
+    projectKey: '210503-Reston-Net_Jean-Monegro-P1'
+    projectName: 'CarLot'
+- task: SonarCloudAnalyze@1
+  displayName: Run Code Analysis
+- task: SonarCloudPublish@1
+  displayName: Publish Code Analysis
+
+  # task: DotNetCoreClI@2
+  #   displayName: publish
+  #   inputs:
+  #     command: 
+
+
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
