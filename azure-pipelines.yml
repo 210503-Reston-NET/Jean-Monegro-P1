@@ -9,14 +9,6 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'RRSonarCloud'
-    organization: '210503-reston-net'
-    scannerMode: 'MSBuild'
-    projectKey: '210503-Reston-NET_trainer-code'
-    projectName: 'trainer-code'
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
