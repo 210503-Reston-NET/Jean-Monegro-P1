@@ -26,6 +26,16 @@ stages:
         command: 'restore'
         projects: $(solution)
         feedsToUse: 'select'
+    - task: DotNetCoreCLI@2
+      displayName: Build the solution
+      inputs:
+        command: 'build'
+        projects: $(solution)
+    - task: DotNetCoreCLI@2
+      displayName: Test
+      inputs:
+        command: 'test'
+        projects: '**/Jean-Monegro-P1/FinalCarLot/RRTests/*.csproj'
     - task: Docker@2
       displayName: Build an image
       inputs:
