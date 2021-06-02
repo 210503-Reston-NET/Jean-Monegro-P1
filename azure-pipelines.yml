@@ -1,37 +1,61 @@
-# Starter pipeline
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/4-devops/RestaurantReviews/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'CarLotSonarCloud'
+    SonarCloud: 'RRSonarCloud'
     organization: '210503-reston-net'
     scannerMode: 'MSBuild'
-    projectKey: '210503-Reston-Net_Jean-Monegro-P1'
-    projectName: 'CarLot'
+    projectKey: '210503-Reston-NET_trainer-code'
+    projectName: 'trainer-code'
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: 'restore'
+    projects: $(solution)
+    feedsToUse: 'select'
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: 'build'
+    projects: $(solution)
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: 'test'
+    projects: '**/4-devops/RestaurantReviews/RRTests/*.csproj'
+    arguments: --configuration $(buildConfiguration) --collect "Code Coverage"
+
+# This publishes the code coverage results and includes it in the code analysis
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/corbertura/coverage.xml'
 - task: SonarCloudAnalyze@1
   displayName: Run Code Analysis
 - task: SonarCloudPublish@1
   displayName: Publish Code Analysis
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    zipAfterPublish: true
+    projects: '**/4-devops/RestaurantReviews/RRWebUI/*csproj'
 
-  # task: DotNetCoreClI@2
-  #   displayName: publish
-  #   inputs:
-  #     command: 
-
-
-
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- main
-
-pool: Default
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(ebebd640-992a-436a-811e-f2e05a330137)'
+    appType: 'webApp'
+    WebAppName: 'RestReview'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
