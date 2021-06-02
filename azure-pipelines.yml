@@ -26,7 +26,7 @@ steps:
   displayName: Test
   inputs:
     command: 'test'
-    projects: '**/4-devops/RestaurantReviews/RRTests/*.csproj'
+    projects: '**/FinalCarLot/RRTests/*.csproj'
     arguments: --configuration $(buildConfiguration) --collect "Code Coverage"
 
 # This publishes the code coverage results and includes it in the code analysis
@@ -44,7 +44,7 @@ steps:
     command: 'publish'
     publishWebProjects: false
     zipAfterPublish: true
-    projects: '**/4-devops/RestaurantReviews/RRWebUI/*csproj'
+    projects: '**/FinalCarLot/RRWebUI/*csproj'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
