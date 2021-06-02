@@ -51,5 +51,5 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(ebebd640-992a-436a-811e-f2e05a330137)'
     appType: 'webApp'
-    WebAppName: 'RestReview'
+    WebAppName: 'TheCarLot'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
