@@ -1,0 +1,23 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+
+WORKDIR /app
+
+COPY *.sln ./
+COPY RRBL/*.csproj RRBL/
+COPY RRDL/*.csproj RRDL/
+COPY RRTests/*.csproj RRTests/
+COPY RRWebUI/*.csproj RRWebUI/
+COPY RRModels/*.csproj RRModels/
+
+RUN cd RRWebUI && dotnet restore
+
+COPY . ./
+
+RUN dotnet publish RRWebUI -c Release -o publish --no-restore
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 as runtime
+
+WORKDIR /app
+COPY --from=build /app/publish ./
+
+CMD ["dotnet", "RRWebUI.dll"]
