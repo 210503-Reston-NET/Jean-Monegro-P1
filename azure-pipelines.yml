@@ -4,7 +4,7 @@ trigger:
 pool: Default
 
 variables:
-  solution: '**/FinalCarLot/RestaurantReviews/*.sln'
+  solution: '**/FinalCarLot/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
