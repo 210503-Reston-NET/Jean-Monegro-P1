@@ -21,12 +21,12 @@ steps:
   inputs:
     command: 'build'
     projects: $(solution)
-- task: DotNetCoreCLI@2
-  displayName: Test
-  inputs:
-    command: 'test'
-    projects: '**/FinalCarLot/RRTests/*.csproj'
-    arguments: --configuration $(buildConfiguration) --collect "Code Coverage"
+# - task: DotNetCoreCLI@2
+#   displayName: Test
+#   inputs:
+#     command: 'test'
+#     projects: '**/FinalCarLot/RRTests/*.csproj'
+#     arguments: --configuration $(buildConfiguration) --collect "Code Coverage"
 
 # This publishes the code coverage results and includes it in the code analysis
 - task: PublishCodeCoverageResults@1
