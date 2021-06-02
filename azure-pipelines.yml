@@ -5,7 +5,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/4-devops/RestaurantReviews/*.sln'
+  solution: '**/FinalCarLot/RestaurantReviews/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
