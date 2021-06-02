@@ -26,6 +26,8 @@ namespace RRDL
         Customer FindCustomerById(int id);
 
         List<Customer> GetAllCustomers();
+        List<Review> GetAllReviews();
+
 
         Customer DeleteCustomer(Customer customer);
 

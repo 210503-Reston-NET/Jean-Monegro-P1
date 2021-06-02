@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Content Remove="Views\Restaurant\ViewInventory.cshtml" />
+    <Content Remove="Views\Customer\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Customer\" />

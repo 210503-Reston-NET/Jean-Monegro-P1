@@ -32,11 +32,11 @@ namespace RRWebUI.Controllers
             Tuple<List<Review>, decimal> result = _reviewBL.GetReviews(_locationBL.GetLocationById(id));
             if (result.Item1.Count > 0)
             {
-                ViewData.Add("OverallPrice", result.Item2);
+                ViewData.Add("AveragePrice", result.Item2);
             }
             else
             {
-                ViewData.Add("OverallPrice", "No vehicles yet");
+                ViewData.Add("AveragePrice", "No vehicles yet");
             }
             return View(result.Item1.Select(review => new ReviewVM(review)).ToList());
         }

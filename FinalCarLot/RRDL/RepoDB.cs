@@ -151,5 +151,13 @@ namespace RRDL
             _context.SaveChanges();
             return customer;
         }
+
+        public List<Review> GetAllReviews()
+        {
+            return _context.Reviews
+            .Select(
+                review => new Model.Review(review.Make, review.Model, review.Year, review.Mpg, review.Desc, review.Price)
+            ).ToList();
+        }
     }
 }

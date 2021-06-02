@@ -41,8 +41,6 @@ namespace RRBL
 
         public List<Location> GetAllLocations()
         {
-            //Note that this method isn't really dependent on any inputs/parameters, I can just directly call the
-            // DL method in charge of getting all restaurants
             return _repo.GetAllLocations();
         }
 

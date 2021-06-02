@@ -1,10 +1,65 @@
-﻿using System;
-namespace RRWebUI.Views.Home
-{
-	public class Inventory
-	{
-		public Inventory()
-		{
-		}
-	}
+﻿@model IEnumerable<RRWebUI.Models.ReviewVM>
+
+@{
+    ViewData["Title"] = "Inventory";
 }
+
+<h4>Viewing complete inventory</h4>
+<h6>Average vehicle price in this lot: @ViewData["AveragePrice"]</h6>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mpg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desc)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modeltem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mpg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReviewId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReviewId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    @Html.ActionLink("Back to list of locations", "Index", "Restaurant")
+</p>

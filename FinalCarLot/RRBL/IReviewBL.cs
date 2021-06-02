@@ -9,5 +9,7 @@ namespace RRBL
         Review AddReview(Location location, Review review);
 
         Tuple<List<Review>, decimal> GetReviews(Location location);
+
+        List<Review> GetAllReviews();
     }
 }

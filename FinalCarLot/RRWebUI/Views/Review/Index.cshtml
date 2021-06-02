@@ -6,7 +6,7 @@
 
 <h1>@ViewBag.Location.City</h1>
 <h4>Viewing inventory from: @ViewBag.Location.City, @ViewBag.Location.State</h4>
-<h6>Average vehicle price in this lot: @ViewData["OverallRating"]</h6>
+<h6>Average vehicle price in this lot: @ViewData["AveragePrice"]</h6>
 
 <p>
     @Html.ActionLink("Add a Vehicle", "Create", new { id = ViewBag.Location.Id })

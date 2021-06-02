@@ -31,23 +31,21 @@ namespace RRWebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CustomerVM customer)
+        public ActionResult Create(CustomerVM customerVM)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _customerBL.AddCustomer(new Customer { FirstName = customer.FirstName, LastName = customer.LastName, Email = customer.Email, Pin = customer.Pin });
+                    _customerBL.AddCustomer(new Customer
+                    {
+                        FirstName = customerVM.FirstName,
+                        LastName = customerVM.LastName,
+                        Email = customerVM.Email,
+                        Pin = customerVM.Pin
+                    }
+                    );
                     return RedirectToAction(nameof(Index));
-                    //_customerBL.AddCustomer(new Customer
-                    //{
-                    //    FirstName = customerVM.FirstName,
-                    //    LastName = customerVM.LastName,
-                    //    Email = customerVM.Email,
-                    //    Pin = customerVM.Pin
-                    //}
-                    //);
-                    //return RedirectToAction(nameof(Index));
                 }
                 return View();
             }

@@ -33,5 +33,9 @@ namespace RRBL
             }
             return new Tuple<List<Review>, decimal>(restaurantReviews, averagePrice);
         }
+        public List<Review> GetAllReviews()
+        {
+            return _repo.GetAllReviews();
+        }
     }
 }

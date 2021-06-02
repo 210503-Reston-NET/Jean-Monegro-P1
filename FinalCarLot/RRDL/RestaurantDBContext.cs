@@ -28,10 +28,10 @@ namespace RRDL
             .Property(review => review.ReviewId)
             .ValueGeneratedOnAdd();
             modelBuilder.Entity<Customer>()
-            .Property(review => review.CustomerId)
+            .Property(customer => customer.CustomerId)
             .ValueGeneratedOnAdd();
             modelBuilder.Entity<Order>()
-            .Property(review => review.OrderId)
+            .Property(order => order.OrderId)
             .ValueGeneratedOnAdd();
         }
     }
