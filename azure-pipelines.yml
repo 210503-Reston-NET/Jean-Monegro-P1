@@ -9,6 +9,8 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+steps:
+
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
