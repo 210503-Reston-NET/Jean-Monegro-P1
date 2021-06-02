@@ -35,5 +35,5 @@ namespace RRTests
     //         //Check that we're getting the same amount of restaurants that we're returning
     //         Assert.Equal(2, model.Count());
     //     }
-    // }
+    }
 }
