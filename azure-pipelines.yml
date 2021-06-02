@@ -53,3 +53,4 @@ steps:
     appType: 'webApp'
     WebAppName: 'TheCarLot'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'DOTNETCORE|5.0'
