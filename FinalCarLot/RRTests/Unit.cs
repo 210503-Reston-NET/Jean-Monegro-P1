@@ -1,6 +1,6 @@
 namespace RRTests
 {
-    public class UnitTest
+    public class Unit
     {
         private readonly DbContextOptions<Entity.PracticeContext> options;
 
